@@ -3,9 +3,23 @@ Input: a List of integers where every int except one shows up twice
 Returns: an integer
 '''
 def single_number(arr):
-    # Your code here
+    log = {}
 
-    pass
+    for num in arr:
+        if num in log:
+            log[num] += 1
+            if log[num] == 2:
+                # seen twice, not it
+                del log[num]
+        else:
+            log[num] = 1
+
+    if len(log) > 1:
+        print("List contains more than one single-number")
+        raise Exception
+
+    # return remaining single key
+    return next(iter(log))
 
 
 if __name__ == '__main__':
