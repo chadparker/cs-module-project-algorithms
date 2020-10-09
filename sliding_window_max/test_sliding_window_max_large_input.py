@@ -22,6 +22,7 @@ class Test(unittest.TestCase):
         end_time = time.time()
 
         self.assertTrue((end_time - start_time) < 1)
+        print(end_time - start_time)
         self.assertEqual(answer, expected)
 
 
